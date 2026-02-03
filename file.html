@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pari ❤️ Mannn</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+  background: #ffd6e8;
+  overflow-x: hidden;
+}
+
+section {
+  display: none;
+  padding: 30px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.active { display: block; }
+
+.card {
+  background: #ffeef6;
+  padding: 25px;
+  border-radius: 25px;
+  max-width: 520px;
+  margin: auto;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+button {
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.yes { background: #ff4d88; color: white; }
+.no { background: #ffd1dc; position: absolute; }
+
+.gifts button {
+  background: #ff9ebb;
+  color: white;
+}
+
+.letter {
+  background: #fff;
+  padding: 22px;
+  border-radius: 18px;
+  text-align: left;
+  font-family: 'Segoe Script', cursive;
+  line-height: 1.6;
+}
+
+.heart {
+  position: fixed;
+  color: #ff4d88;
+  animation: float 6s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section id="page1" class="active">
+  <div class="card">
+    <h1>Hey Mannn 💕<br>Will you be my Valentine?</h1>
+    <button class="yes" onclick="go('page2')">YES OFC ❤️</button>
+    <button class="no" id="noBtn">NO THANK YOU</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2">
+  <div class="card">
+    <h1>Yay, you said yes! 💖</h1>
+    <p>I made all these for you hehe 🥰</p>
+    <div class="gifts">
+      <button onclick="go('page3')">Gift 1 💌</button>
+      <button onclick="go('page4')">Gift 2 🎵</button>
+      <button onclick="go('page5')">Gift 3 🌹</button>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT 1 -->
+<section id="page3">
+  <div class="card letter">
+    <h2>To the love of my life 💕</h2>
+    <p>
+      You make my life so meaningful and I am so lucky to have you as my valentine this year.
+      Your presence make everything so pretty exactly like your eyes.
+      My love you are the best thing ever happened to me.
+    </p>
+    <p>
+      I love you wholeheartedly and I can’t wait to continue loving you for the rest of my life.
+    </p>
+    <p>— Yours forever, Pari 💖</p>
+    <button onclick="go('page2')">Back 💗</button>
+  </div>
+</section>
+
+<!-- GIFT 2 -->
+<section id="page4">
+  <div class="card">
+    <h1>This song is us 🎶</h1>
+    <p>Scan the QR or tap below 💕</p>
+    <a href="https://youtu.be/BadBAMnPX0I?si=VedrgXwuOeQbDZTu" target="_blank">
+      <button class="yes">Play Song 💖</button>
+    </a>
+    <button onclick="go('page2')">Back 💗</button>
+  </div>
+</section>
+
+<!-- GIFT 3 -->
+<section id="page5">
+  <div class="card">
+    <h1>A bouquet for you 🌹</h1>
+    <img src="https://i.imgur.com/YZ6XQZQ.png" width="100%">
+    <p>You will forever be my only option ❤️</p>
+    <button onclick="go('page2')">Back 💗</button>
+  </div>
+</section>
+
+<script>
+function go(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * 70 + "%";
+  noBtn.style.top = Math.random() * 70 + "%";
+});
+
+// hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+</body>
+</html>
