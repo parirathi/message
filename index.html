@@ -2,161 +2,139 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pari ❤️ Mannn</title>
+<title>Will You Be My Valentine 💕</title>
 
 <style>
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
-  background: #ffd6e8;
-  overflow-x: hidden;
-}
-
-section {
-  display: none;
-  padding: 30px;
-  min-height: 100vh;
+  font-family: "Comic Sans MS", "Poppins", cursive;
+  background: linear-gradient(#ffd6e8, #ffc0cb);
   text-align: center;
+  color: #d6336c;
 }
 
-.active { display: block; }
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .card {
-  background: #ffeef6;
-  padding: 25px;
+  background: #ffeef5;
+  padding: 30px;
   border-radius: 25px;
-  max-width: 520px;
-  margin: auto;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
 }
 
 button {
-  padding: 12px 22px;
-  border-radius: 30px;
+  background: #ff7aa2;
   border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
   font-size: 16px;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.yes { background: #ff4d88; color: white; }
-.no { background: #ffd1dc; position: absolute; }
-
-.gifts button {
-  background: #ff9ebb;
   color: white;
+  cursor: pointer;
+  margin: 10px;
 }
 
-.letter {
-  background: #fff;
-  padding: 22px;
-  border-radius: 18px;
-  text-align: left;
-  font-family: 'Segoe Script', cursive;
-  line-height: 1.6;
+button:hover {
+  background: #ff4f87;
 }
 
-.heart {
-  position: fixed;
-  color: #ff4d88;
-  animation: float 6s linear infinite;
-  font-size: 20px;
+.hidden {
+  display: none;
 }
 
-@keyframes float {
-  0% { transform: translateY(100vh); opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
+.rose {
+  width: 220px;
+  margin: 15px 0;
+}
+
+.gift-btn {
+  width: 100px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<section id="page1" class="active">
-  <div class="card">
-    <h1>Hey Mannn 💕<br>Will you be my Valentine?</h1>
-    <button class="yes" onclick="go('page2')">YES OFC ❤️</button>
-    <button class="no" id="noBtn">NO THANK YOU</button>
+<div class="container">
+  <div class="card" id="page1">
+    <h1>Hey there 💗</h1>
+    <h2>Will you be my Valentine?</h2>
+    <button onclick="yesClicked()">YES OF COURSE</button>
+    <button onmouseover="moveNo(this)">NO THANK YOU</button>
   </div>
-</section>
 
-<!-- PAGE 2 -->
-<section id="page2">
-  <div class="card">
-    <h1>Yay, you said yes! 💖</h1>
-    <p>I made all these for you hehe 🥰</p>
-    <div class="gifts">
-      <button onclick="go('page3')">Gift 1 💌</button>
-      <button onclick="go('page4')">Gift 2 🎵</button>
-      <button onclick="go('page5')">Gift 3 🌹</button>
-    </div>
+  <div class="card hidden" id="page2">
+    <h1>Yay! You said YES 💕</h1>
+    <p>I made all these for you hehe</p>
+    <button class="gift-btn" onclick="showRose()">Gift 1</button>
+    <button class="gift-btn" onclick="showLetter()">Gift 2</button>
+    <button class="gift-btn" onclick="showSong()">Gift 3</button>
   </div>
-</section>
 
-<!-- GIFT 1 -->
-<section id="page3">
-  <div class="card letter">
-    <h2>To the love of my life 💕</h2>
+  <div class="card hidden" id="rose">
+    <h2>Rose Bouquet 🌹</h2>
+    <img class="rose" src="https://i.imgur.com/4AiXzf8.png">
+    <p>I will always love you 💖</p>
+    <p>You are my forever 💘</p>
+  </div>
+
+  <div class="card hidden" id="letter">
+    <h2>To the love of my life 💌</h2>
     <p>
-      You make my life so meaningful and I am so lucky to have you as my valentine this year.
-      Your presence make everything so pretty exactly like your eyes.
-      My love you are the best thing ever happened to me.
+      You make my life so meaningful.<br>
+      I’m so lucky to have you as my Valentine.<br>
+      I can’t wait to love you for the rest of my life 💖
     </p>
-    <p>
-      I love you wholeheartedly and I can’t wait to continue loving you for the rest of my life.
-    </p>
-    <p>— Yours forever, Pari 💖</p>
-    <button onclick="go('page2')">Back 💗</button>
+    <h3>XOXO 💋</h3>
   </div>
-</section>
 
-<!-- GIFT 2 -->
-<section id="page4">
-  <div class="card">
-    <h1>This song is us 🎶</h1>
-    <p>Scan the QR or tap below 💕</p>
-    <a href="https://youtu.be/BadBAMnPX0I?si=VedrgXwuOeQbDZTu" target="_blank">
-      <button class="yes">Play Song 💖</button>
+  <div class="card hidden" id="song">
+    <h2>A song for you 🎶</h2>
+    <p>Click below 💕</p>
+    <a href="https://open.spotify.com" target="_blank">
+      <button>Play Song 💖</button>
     </a>
-    <button onclick="go('page2')">Back 💗</button>
   </div>
-</section>
-
-<!-- GIFT 3 -->
-<section id="page5">
-  <div class="card">
-    <h1>A bouquet for you 🌹</h1>
-    <img src="https://i.imgur.com/YZ6XQZQ.png" width="100%">
-    <p>You will forever be my only option ❤️</p>
-    <button onclick="go('page2')">Back 💗</button>
-  </div>
-</section>
+</div>
 
 <script>
-function go(id) {
-  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+function moveNo(btn) {
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 70 + "%";
+  btn.style.top = Math.random() * 70 + "%";
 }
 
-const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", () => {
-  noBtn.style.left = Math.random() * 70 + "%";
-  noBtn.style.top = Math.random() * 70 + "%";
-});
+function yesClicked() {
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+}
 
-// hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 500);
+function showRose() {
+  hideAll();
+  document.getElementById("rose").classList.remove("hidden");
+}
+
+function showLetter() {
+  hideAll();
+  document.getElementById("letter").classList.remove("hidden");
+}
+
+function showSong() {
+  hideAll();
+  document.getElementById("song").classList.remove("hidden");
+}
+
+function hideAll() {
+  document.querySelectorAll(".card").forEach(c => c.classList.add("hidden"));
+}
 </script>
 
 </body>
 </html>
+
